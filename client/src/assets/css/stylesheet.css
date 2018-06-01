@@ -16,9 +16,7 @@
 }
 
 body{
-    /* background: linear-gradient(217deg, rgba(214,103,71,.8), rgba(211,102,70,0) 70.71%),
-            linear-gradient(127deg, rgba(240,75,85,.8), rgba(250,200,133,0) 70.71%),
-            linear-gradient(336deg, rgba(2250,170,112,.8), rgba(211,102,70,0) 70.71%); */
+
     
 }
    /*---------------- */
@@ -60,10 +58,50 @@ header {
  .menubar {
     display: block;
     height: 60px;
-    background-color: #03A9F4;
+    
     box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.12);
     text-align: center;
   }
+
+  .menubar {
+    animation: 40000ms ease-in-out infinite colorschange;
+  }
+  
+  @keyframes colorschange {
+    0% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    25% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    50% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    75% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    100% {
+        background: linear-gradient(to bottom right, lightblue, pink);
+    }
+
+  }
+
+  .barsSvg-left{
+    position: relative;
+    top: -60px;
+    right: 100px;
+    opacity:0.7;
+  }
+
+  .barsSvg-right{
+    position: relative;
+    top: -195px;
+    left: 100px;
+    opacity:0.7;
+    z-index:0;
+  }
+
+
   
   .menubar span {
     display: inline-block;
@@ -215,10 +253,9 @@ header {
 .top-display-text, .event-display-text, .concerts-text, .genre-label {
     text-align: center;
     margin-top: 3%;
-    background-color:white;
     padding-top: 2%;
     padding-bottom:2%; 
-    color:grey;
+    color:white;
     font-size: 1em; 
 }
 
@@ -247,16 +284,17 @@ img{
     margin-top:1%;
     /* position:relative; */
     /* bottom:-18.5em; */
-    text-overflow:hidden;
-    opacity:0.7;
+    
+    opacity:0.8;
     background-color:#222065;
+    
 }
 
 .carousel-date-info{
     height:35%;
     border: solid black 1px;
     margin-top:1%;
-    text-overflow:hidden;
+
     position:relative;
 
     /* bottom:-18.5em; */
@@ -299,9 +337,10 @@ img{
 }
 
 .artist-title{
-    font-size:1.5em;
-    color:black;
+    font-size:1.3em;
+    color:white;
     font-weight:bold;
+    padding-left:2%;
 
 }
 
@@ -349,7 +388,7 @@ img{
     /* width: 100%; */
     margin-top: 1%;
     margin-bottom:1%;
-    box-shadow:grey 5px 5px 5px;
+    box-shadow:grey 5px 5px 8px;
 }
 .title{
     margin: 0;
@@ -461,7 +500,7 @@ img{
 }
 
 .suggested-event-cal p{
-font-size:1em;
+font-size:0.8em;
 line-height: 1;
 padding-top: 0.4em;
 }
@@ -496,6 +535,7 @@ footer{
 /* .social-media-icons{
     /* display:inline-block; */
 
+    /* THESE ARE THE LOGOS*/
 .icon .fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
     color: white;
     size:2em;
@@ -559,13 +599,13 @@ footer{
   .search_toolbar_popdown{
     position: absolute;
     width: 100%;
-    border: black 1px solid;
-    border-radius: 2%;
+    border: black 2px solid;
     height: 5em;
     font-size: 0.9em;
     box-shadow: grey 5px 5px 5px;
     top: 60px;
     z-index: 1;
+    padding:2%;
   }
 
 
@@ -582,6 +622,10 @@ footer{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.about-event-display-text{
+
 }
 
 /* Modal Content/Box */
@@ -612,3 +656,43 @@ footer{
     text-decoration: none;
     cursor: pointer;
 }
+
+.mapThing{
+    background-image:url('../images/note.png');
+    z-index: 1;
+    background-size:cover;
+    animation: bounce 0.5s infinite alternate;
+    background-size:20px;
+    background-repeat:repeat;
+  
+}
+
+@keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-15px);
+    }
+  }
+ 
+/*LOGO */
+
+  .logo{
+      width: 16vw;
+      height: 7vh;
+      position: relative;
+      top:-23vh;
+  }
+
+
+  /* event item calendar*/
+
+  .dayRender{
+      font-size:1.5em;
+  }
+
+ .venue, .time{
+    padding-top:1%;
+    padding-right:2%;
+ }

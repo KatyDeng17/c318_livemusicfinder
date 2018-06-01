@@ -6,6 +6,7 @@ import CarouselInfo from './mainCarousel';
 import EventDetailsSecondPage from './event_details_info';
 import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
+import Jazz404 from '../assets/images/concertImage1.jpg';
 import Footer from './footer';
 import CarouselSlider from './carouselBootstrap';
 // import carousel from './carouselSlider';
@@ -25,7 +26,7 @@ class Main extends Component {
 
         this.showMoreEvents = this.showMoreEvents.bind(this)
     }
-
+    
     componentDidMount(){
         this.getEventsFromDb();
     }
@@ -59,6 +60,8 @@ class Main extends Component {
     }
 
     render(){
+        
+        
         const { events } = this.state;
 
         if (!events.length) {
@@ -85,49 +88,50 @@ class Main extends Component {
                 const eventTime= parseInt(timeStringMinusThreeCharacters);
                 
                 
-
                 if (item.event_image !== "No Image") {
                     return(
-                        <Event start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime}  description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 } else {
                     return(
-                        <Event start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime} description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 }
+                
 
-            // const eventDetailsInfo = dummyData.map((item,index) => {
-            //             <EventDetailsSecondPage title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
-            //     });
+    
             });
 
-            const carouselMainInfo = dummyData.map((item, index) => {
+            const carouselMainInfo = this.state.events.map((item, index) => {
                 return (
-                    <CarouselInfo key={index} title={item.title} venue_name={item.venue_name} time={item.start_time} />
+                    <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
                 )
             })
 
-            const top = allEvents.map((item, index) => {
+            const top = this.state.events.map((item, index) => {
                 return (
-                    <Top key={index} city_name={item.city_name} />
+                    <Top key={index} city_name={item.city} />
                 )
             });
+
+            
             return (
+               
                 <div>
                     {/* <Carousel/> */}
                     <Top city_name={this.props.city_name} />
                     <div className="container-fluid">
-                        <CarouselSlider/>
+                        <CarouselSlider events={events}/>
                     </div>
                     {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
-                    {/* {carouselMainInfo} << TO POPULATE NON HARD CODED */}
+                    {/* {carouselMainInfo}  << TO POPULATE NON HARD CODED */}
                     {allEvents}
                     {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
                     {/* <ShowMoreButton/> */}
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
-                            <button className="show-more-button btn" onClick={this.showMoreEvents}>SHOW MORE BUTTON</button>
+                            <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button>
                         </div>
                         </div>
                     </div>

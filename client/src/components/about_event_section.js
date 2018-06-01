@@ -7,23 +7,25 @@ class AboutEvent extends Component {
     constructor(props){
         super(props);
 
-        // this.state = {
-        //     description: []
-        // };
+        this.state = {
+            description: []
+        };
     }
 
     render() {
-    //     const eventDetails=this.props
-    //     const comingSoon="details coming soon.."
-    //     console.log("eventDetails:", comingSoon);
-        
-    //     if( this.state.description == null){
-    //         return(
-    //             comingSoon
-    //         )
-    //     }
+        const eventDetails=this.props
+        const comingSoon="details coming soon.."
+        console.log("eventDetails:", comingSoon);
+    
+        if( this.props.description === "No data" || this.props.description === " br "){
+            return(
+                <div className="comingSoon">
+                <p>{comingSoon}</p>
+                </div>
+            )
+        }
             
-    //     }
+        
     
 
         

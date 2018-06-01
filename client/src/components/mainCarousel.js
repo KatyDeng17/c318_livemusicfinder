@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
-
+// this is the carousel for the first page
 class CarouselInfo extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +10,7 @@ class CarouselInfo extends Component {
     render() {
     const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dateObject = Date.parse(this.props.event_date);
+    const dateObject = Date.parse(this.props.current_event.event_date);
     const date = new Date(dateObject);
     const dayOfWeek = dayArray[date.getDay()];
     const month = monthsArray[date.getMonth()];
@@ -30,9 +30,9 @@ class CarouselInfo extends Component {
         
                     <div className="carousel-info carousel-caption">
                         <div className="caption-left">
-                            <p className="artist-title">{this.props.title}</p>
+                            <p className="artist-title">{this.props.current_event.event_title}</p>
                             <p className="time">{EventTime} PM</p>
-                            <p className="venue">{this.props.venue_name}</p>
+                            <p className="venue">{this.props.current_event.venue_name}</p>
                         </div>
                         <div className="caption-right">
                             <div className="day-row"><p className="carousel-day">{dayOfWeekRender}</p></div>
