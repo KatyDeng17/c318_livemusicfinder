@@ -1,6 +1,8 @@
 const axios = require('axios');
 const express = require('express');
-const connection = require('../config/db_connection');
+const connection = require('../config/db-connection');
+// const connection = require('./config/db-connection');
+
 
 const getDataFromEventfullApi = ()=>{
           const BASE_URL = 'http://api.eventful.com/json/events/search';

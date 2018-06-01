@@ -8,7 +8,7 @@ var schedule = require ('node-schedule');
 schedule.scheduleJob('* * * * * *', () => {
     // ================== inserting data fetched back from eventfull api ==================//
     async function test(){
-              const connection = require('./server/config/db_connection.js');
+              const connection = require('./server/config/db-connection.js');
               const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
             try{
               

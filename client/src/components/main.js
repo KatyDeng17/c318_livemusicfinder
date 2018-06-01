@@ -28,9 +28,13 @@ class Main extends Component {
     componentDidMount(){
         this.getEventsFromDb();
     }
-
     componentWillReceiveProps(nextProps){
-        const firstFiveEvents = nextProps.events.splice(0, 5);
+        var numberOfEvents = 5
+        if(nextProps.events.length < 5){
+            numberOfEvents = nextProps.events.length;
+        } 
+          
+        const firstFiveEvents = nextProps.events.splice(0, numberOfEvents);
         this.populateEvents(JSON.parse(JSON.stringify(firstFiveEvents)));
     }
 
@@ -75,13 +79,14 @@ class Main extends Component {
         
         
         const { events, carouselEvents } = this.props;
-
-        if (!events.length) {
+        if (!events.length || !this.state.events.length) {
 
             console.log(`-------->>>>${events.length}h<<<------------`);
             // when events.length !=== 0
             return <div>Loading ...</div>
         } else {
+            console.log('event in main',this.state.events);
+            console.log('event in props', this.props.events);
             const allEvents = this.state.events.map((item, index) => {
                 const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -123,15 +128,11 @@ class Main extends Component {
                 )
             })
 
-
             // const top = events.map((item, index) => {
             //     return (
             //         // <Top key={index} city_name={item.city_name}  />
             //     )
             // });
-
-           
-
 
             const displayButton = events.length> 5 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
            
@@ -145,7 +146,7 @@ class Main extends Component {
                     <Top city_name={topDisplay} />
                     
                     <div className="container-fluid">
-                        <CarouselSlider events={carouselEvents}/>
+                        {/* <CarouselSlider events={carouselEvents}/> */}
                     </div>
              
                     {allEvents}
@@ -153,11 +154,8 @@ class Main extends Component {
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
-
                     
                         {displayButton}
-
-                        {/* {displayButton} */}
                         </div>
                         </div>
                     </div>

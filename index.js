@@ -7,7 +7,7 @@ const { resolve } = require('path');
 const PORT = process.env.PORT || 9000;
 const axios = require('axios');
 var mysql = require('mysql');
-const connection = require('./server/config/db_connection');
+const connection = require('./server/config/db-connection');
 const scheuldeUpdateDb = require('./scheduleJob');
 
 const app = express();
@@ -27,24 +27,24 @@ const timeStart = Date.now();
 //       const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
 //     try{
       
-//       var today = new Date();
-//       var dd = today.getDate();
-//       var mm = today.getMonth()+1; //January is 0!
-//       var yyyy = today.getFullYear();
+//       // var today = new Date();
+//       // var dd = today.getDate();
+//       // var mm = today.getMonth()+1; //January is 0!
+//       // var yyyy = today.getFullYear();
 
-//       if(dd<10) {
-//           dd = '0'+dd
-//       }
-//       if(mm<10) {
-//           mm = '0'+mm
-//       }
-//       today =   yyyy + '-' + mm + '-' + dd;
+//       // if(dd<10) {
+//       //     dd = '0'+dd
+//       // }
+//       // if(mm<10) {
+//       //     mm = '0'+mm
+//       // }
+//       // today =   yyyy + '-' + mm + '-' + dd;
 
-//       var sql = "DELETE FROM `events` WHERE event_date < '"+today+"'";
-//       connection.query(sql, function (err, result) {
-//           if (err) throw err;
-//           console.log("Number of records deleted: " + result.affectedRows);
-//       });
+//       // var sql = "DELETE FROM `events` WHERE event_date < '"+today+"'";
+//       // connection.query(sql, function (err, result) {
+//       //     if (err) throw err;
+//       //     console.log("Number of records deleted: " + result.affectedRows);
+//       // });
 
 
 //       const outputObj = await getDataFromEventfullApi();
