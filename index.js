@@ -7,7 +7,7 @@ const { resolve } = require('path');
 const PORT = process.env.PORT || 9000;
 const axios = require('axios');
 var mysql = require('mysql');
-const connection = require('./server/config/db-connection');
+const connection = require('./server/config/db_connection');
 const scheuldeUpdateDb = require('./scheduleJob');
 
 const app = express();
