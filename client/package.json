@@ -21,11 +21,14 @@
     "url": "https://github.com/Learning-Fuze/c318_livemusicfinder.git"
   },
   "dependencies": {
+    "@google/maps": "^0.4.6",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap3": "^3.3.5",
     "font-awesome-icons": "^1.4.3",
     "google-map-react": "^1.0.3",
+    "google-maps-react": "^2.0.2",
+    "markerclustererplus": "^2.1.4",
     "place": "^1.2.1",
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
