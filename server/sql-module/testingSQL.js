@@ -1,6 +1,6 @@
 
 // //requiring the db connection from db-connection file; 
-// const connection = require('./config/db-connection');
+const connection = require('../config/db-connection');
 
 // // making test data 
 // //making a function() with callback function that has query in it; 

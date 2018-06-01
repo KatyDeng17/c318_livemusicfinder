@@ -1,7 +1,6 @@
 const axios = require('axios');
 const express = require('express');
 const connection = require('../config/db-connection');
-// const connection = require('./config/db-connection');
 
 
 const getDataFromEventfullApi = ()=>{

@@ -21,13 +21,32 @@ class CarouselSlider extends Component{
                 eventData.event_image = "https://images.sk-static.com/images/media/profile_images/artists/465252/huge_avatar"
             }
         } )
+
+        
     }
+
 
     componentDidMount() {
         $('#carousel').carousel({interval: 5000});
     }
     
     render(){
+        const carouselPhotos =this.props.events.map( (eventData, index, thisArray) => {
+            const numOfPhotos= thisArray.length >= 6 ? 6 : events.length
+            const firstPhoto = index === 0 ? "active" : ""
+
+            if (index <= numOfPhotos){
+            return(
+                <div className={"item " + firstPhoto} key={index}>
+                <img src={eventData.event_image}/>
+                <CarouselInfo current_event={eventData} />
+                    
+                </div>  
+            ) 
+        }  
+
+            
+        } )
         // if (item.event_image !== "No Image") {
         //     return(
         //         <img src={this.props.events[0].event_image}/>
@@ -59,11 +78,10 @@ class CarouselSlider extends Component{
                             <li data-target="#carousel" data-slide-to="5"></li>
                         </ol>
                         <div className="carousel-inner" role="listbox">
-                            <div className="item active">
+                        {carouselPhotos}
+                            {/* <div className="item active">
                     
-                               {/* <img src= {this.props.events.map( eventData => eventData.event_image} === "No Data"} ? {Jazz404} : {Jazz404}) /> */}
                                <img src={this.props.events[0].event_image}/>
-                                {/* <CarouselInfo title={dummyData[3].title} venue_name={dummyData[3].venue_name} time={dummyData[3].start_time} /> */}
                                 <CarouselInfo current_event={this.props.events[0]} />
                             </div>
 
@@ -84,11 +102,9 @@ class CarouselSlider extends Component{
                             </div>
 
                             <div className="item">
-                                {/* <img src={dummyData[3].image.blackborder250.url}/> */}
                                 <img src={this.props.events[4].event_image}/>
-                                {/* <CarouselInfo title={dummyData[3].title} venue_name={dummyData[3].venue_name} time={dummyData[3].start_time} /> */}
                                 <CarouselInfo current_event={this.props.events[4]} />
-                            </div>
+                            </div> */}
                         
                      </div>
                     
