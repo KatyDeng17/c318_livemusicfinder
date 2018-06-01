@@ -1,26 +1,40 @@
-*{ 
-        box-sizing:content-box;
-        margin:0;
-        padding:0;
+
+@font-face{
+    font-family: backtoblack;
+    src: url("../fonts/BackToBlack.ttf");
+}
+
+*{
+  /*--------------------- */
+  /**** PAGE SETUP *******/
+ /*-------------------- */
+
+    margin: 0px;
+    padding: 0px;
+    font-family: helvetica;
+    box-sizing: border-box;
 }
 
 
-/* HEADER*/
+   /*---------------- */
+  /**** HEADER *******/
+ /*---------------- */
 
 header {
     border: solid black 1px;
-    width:100vw;
-    height:8vh;
+    /* width:100vw; */
+    /* height:8vh; */
     padding: 0.5%;
-    background: linear-gradient(to bottom right,lightcyan,plum,pink);
+
+}
+.search_toolbar{
+    position: absolute;
+    right: 0;
+    top:0;
+    z-index:50;
 }
 .nav{
     margin-top:2%;
-}
-.event-container{
-    width:100%;
-    height:100%;
-    background-color:lightcyan;
 }
 
 .left-nav,.right-nav{
@@ -35,24 +49,229 @@ header {
     color:white;
     padding-top:2%;
 }
+  /*----------------- */
+  /**** SIDE MENU ****/
+ /*---------------- */
+
+ .menubar {
+    display: block;
+    height: 60px;
+    
+    box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.12);
+    text-align: center;
+  }
+
+  .menubar {
+    animation: 40000ms ease-in-out infinite colorschange;
+  }
+  
+  @keyframes colorschange {
+    0% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    25% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    50% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    75% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    100% {
+        background: linear-gradient(to bottom right, lightblue, pink);
+    }
+
+  }
+
+  .barsSvg-left{
+    position: relative;
+    top: -3em;
+    right: 8em;
+    opacity:0.7;
+  }
+
+  .barsSvg-right{
+    position: relative;
+    top: -12em;
+    left: 7em;
+    opacity:0.7;
+   
+    
+  }
+
+
+  
+  .menubar span {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    font-weight: 300;
+    font-size: 2em;
+    line-height: 60px;
+  }
+  
+  #hambmenu {
+    position: relative;
+    width: 40px;
+    height: 45px;
+    float: left;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #hambmenu span {
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    vertical-align: middle;
+    margin: 20px 0 0 15px;
+    background: gray;
+    border-radius: 8px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    padding: 0px;
+  }
+
+  .title span {
+    display:flex;
+  }
+  
+  .hambclicker {
+    content: "";
+    height: 48px;
+    width: 55px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    cursor: pointer;
+    z-index: 9;
+  }
+  
+  #hambmenu span:nth-child(1) {
+    top: 0px;
+  }
+  
+  #hambmenu span:nth-child(2), #hambmenu span:nth-child(3) {
+    top: 10px;
+  }
+  
+  #hambmenu span:nth-child(4) {
+    top: 20px;
+  }
+  
+  #hambmenu.isopen span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+    opacity: 0;
+  }
+  
+  #hambmenu.isopen span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  
+  #hambmenu.isopen span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  
+  #hambmenu.isopen span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+    opacity: 0;
+  }
+  
+  #menu {
+    position: absolute;
+    top: 60px;    
+    height: calc(100vh - 60px);
+    width: 210px;
+    background-color:white;
+    z-index: 1;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    transition: transform 300ms, -webkit-transform 300ms;
+  }
+  #menu ul {
+    margin-top: 0px;
+    padding: 0px;
+    color: black;
+    list-style-type: none;
+    text-align: left;
+  }
+  #menu li {
+    padding: 30px 0 20px 20px;
+    font-size: 1.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  }
+  #menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .fa {
+    color: black;
+    padding-right: 8px;
+  }
+  
+  li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  #menu.isopen {
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  .fa{
+      margin-top: 10px;
+      font-size: 39px;
+  }
+
+  /*------------------- */
+  /**** CAROUSEL *******/
+ /*------------------ */
 
 
 /* DISPLAY FOR CAROUSEL */
-.top-display-text, .event-display-text, .concerts-text{
-    border:solid black 1px;
+
+#carousel{
+    margin-bottom: 25px;
+}
+ .event-display-text, .concerts-text{
     text-align: center;
-    margin-top: 1%;
-    background-color: yellow;
-    padding-top:1%;
+    margin-top: 3%;
+    padding-top: 2%;
+    padding-bottom:2%; 
+    color:rgb(23, 160, 30);
+    font-size: 1em; 
+}
+
+.top-display-text{
+    padding: 3%;
+    font-size:1.5em;
+}
+
+.label{
+    color:black !important;
+    font-size: 1em;
 }
 
 .carousel-container{
     width:100%;
     height:26em;
-    border: solid black 1px;
     margin-top:1%;
-    background-color:lightgreen;
-    background-image: url("./images/artist_image_example.jpg");
+    margin-bottom: 3%;
     background-repeat: no-repeat;
     background-size:100%;
 }
@@ -62,33 +281,53 @@ img{
 }
 
 .carousel-info{
-    height:min-content;
-    border: solid black 1px;
+    /* height:min-content; */
+    /* border: solid black 1px; */
     margin-top:1%;
-    position:relative;
-    bottom:-18.5em;
-    background-color:lightgrey;
-    text-overflow:hidden;
-    opacity:0.7;
+    /* position:relative; */
+    /* bottom:-18.5em; */
+    
+    opacity:0.8;
+    background-color:#222065;
+    
 }
 
 .carousel-date-info{
     height:35%;
     border: solid black 1px;
     margin-top:1%;
-    background-color: lightgrey;
-    text-overflow:hidden;
-    opacity:0.7;
+
     position:relative;
-    bottom:-18.5em;
+
+    /* bottom:-18.5em; */
+}
+
+.carousel-caption{
+    display: flex;
+}
+
+.caption-left{
+    text-align: left;
+    width: 52%;
+    padding-left:3%;
+}
+
+.caption-right{
+    width: 45%;
+}
+
+.caption-left > p, .caption-right > p {
+    margin: 0;
 }
 
 .carousel-day{
-    font-size:0.8em;
+    font-size:1.3em;
+    color:white;
 }
 
 .carousel-month, .carousel-date{
-    display:inline-block;
+    /* display:inline-block; */
+    color:white;
 }
 
 .carousel-date{
@@ -99,48 +338,109 @@ img{
     font-size:1em;
 }
 
-/* EVENTS DISPLAY AREA */
+.artist-title{
+    font-size:1.3em;
+    color:white;
+    font-weight:bold;
+    padding-left:2%;
+
+}
+
+/* Bootstrap Overrides */
+
+.carousel-caption {
+    right: 0% !important;
+    left: 0% !important;
+    bottom: 0 !important;
+}
+
+.carousel slide{
+    right: 0% !important;
+    left: 0% !important;
+    bottom: 2% !important;
+}
+
+.modal {
+    overflow: auto !important;
+}
+
+.img-con {
+    padding: 0 !important;
+}
+
+   /*---------------------- */
+  /** EVENTS DISPLAY AREA **/
+  /*--------------------- */
 
 .event-container{
     border:solid black 1px;
-    background-color: powderblue;
+    background-color:#f4f1f5;
     height:8em;
     margin-top:2%;
     display: flex;
     flex-direction: row;  
+    width: 100%;
+    
 }
 
 .event-artist-photo{
-    border: solid black 1px;
+    /* border: solid black 1px; */
     height:100%;
     display: flex;
+    /* width: 100%; */
+    margin-top: 1%;
+    margin-bottom:1%;
+    box-shadow:grey 5px 5px 8px;
+}
+.title{
+    margin: 0;
+    font-weight: 700;
+    padding-bottom:10%;
+}
+.event-btn {
+    width: 25%;
+    border-radius: 19px;
+    position: relative;
+    opacity:0.8;
+}
+
+.event-btn:hover{
+    border: 3px solid blue;
 }
 
 img{
-    max-width:100%;
-    max-height:100%;
-}       
+    height: 100%;
+}  
+.img-con{
+    padding-left: 0px;
+}     
 
 .event-info{
-    border:solid black 1px;
     height:100%;
 }
 
 .calendar-info{
     border:solid black 1px;
     background-color:white;
-    border-radius:10%;
     opacity:0.9;
     box-shadow: grey 2px 3px 5px;
     height:80%;
     margin-top:2%;
+    border-top: white solid 1 px;
 }
+
+
 
 .event-text{
     padding-top:9%;
 } 
+.list-unstyled {
+    padding-left: 15px;
+}
 
-/* SHOW MORE */
+   /*------------------- */
+  /** SHOW MORE BUTTON **/
+  /*------------------- */
 
 .show-more{
     border:solid black 1px;
@@ -148,25 +448,30 @@ img{
     background-color: yellow;
     height: 5em;
 }
-.show-more button{
+.show-more-button{
     position: relative;
-    top:0.7em;
-    background-color: #4CAF50; 
+    margin-top:2em;
+    margin-bottom:2em;
+    background-color: rgb(243, 62, 198); 
     border: none;
-    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font:helvetica;
+    color:white;
+    font-style: bold;
+    box-shadow:grey 5px 5px;
  }
 
- /*SUGGESTED EVENTS*/
+ /*------------------- */
+  /** SUGGESTED EVENTS **/
+  /*------------------- */
 .concert-suggestions-container{
     width:100%;
     height:10em;
     border: solid black 1px;
     margin-top:1%;
-    background-image:url("./images/artist_image_example.jpg");
     background-size:100%;
     background-repeat: no-repeat;
 }
@@ -197,12 +502,16 @@ img{
 }
 
 .suggested-event-cal p{
-font-size:1em;
+font-size:0.8em;
 line-height: 1;
 padding-top: 0.4em;
 }
 
-/*HARD CODED DOTS*/
+
+  /*-------------------- */
+  /*** HARD CODED DOTS ***/
+  /*------------------- */
+
 .dot {
     height: 0.5em;
     width: 0.5em;
@@ -211,32 +520,203 @@ padding-top: 0.4em;
     display: inline-block;
   }
 
-/*FOOTER*/
+    /*---------------*/
+    /**** FOOTER ****/
+    /*-------------*/
+   
+      
 
-footer{
-    width:100%;
-    height:26em;
-    border: solid black 1px;
-    margin-top:1%;
-    display:flex;
-    background: linear-gradient(to bottom right,lightcyan,plum,pink);
-    display:flex;
-}
+/* footer {
+    width: 100%;
+    background: black;
+    animation: 40000ms ease-in-out infinite colorschange;
+  }
+  
+  @keyframes colorschange {
+    0% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    25% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    50% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    75% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    100% {
+        background: linear-gradient(to bottom right, lightblue, pink);
+    }
 
-.social-media-icons{
-    display:inline-block;
-}
-.fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
-    color: white;
+  } */
+
+/* .social-media-icons{
+    /* display:inline-block; */
+
+    /* THESE ARE THE LOGOS*/
+.icon .fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
+    color: gray;
     size:2em;
+}
+
+.list-unstyled {
+    display: block;
+    
+}
+
+.google-map-container{
+    margin-top:3%;
+    background-color:grey;
+    border: 1px solid black;
+    width:100%;
+    height:20em;
+    /* height: 100%; */
+    z-index: 20;
+    position: relative;
+}
+
+.youtube{
+    margin-top:3%;
+    background-color:pink;
+    border: 1px solid black;
+    width:100%;
+    height:20em;
+}
+.embed-responsive-16by9{
+    padding-bottom: 58.25%;
+}
+
+/* suggested events carousel */
+
+.event-slider-container{
+    border: 1px solid black;
+    background: purple;
+    width:100%;
+    height:5em;
+}
+
+@media screen and (max-width: 420px) {
+    .menubar span {
+      font-size: 1.2em;
+    }
+    /* .menubar {
+        position: fixed;
+        z-index: 9;
+        width: 100%;
+    } */
+  
+  }
+
+  /* inner-info container for second page*/
+
+  .inner-info-container{
+      font-size: 0.9em;
+      position: absolute;
+  }
+  
+
+  .search_toolbar_popdown{
+    position: absolute;
+    width: 100%;
+    border: black 2px solid;
+    height: 5em;
+    font-size: 0.9em;
+    box-shadow: grey 5px 5px 5px;
+    top: 60px;
+    z-index: 1;
+    padding:2%;
   }
 
 
+  /* modal */
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.about-event-display-text{
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    /* height: 79vh; */
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    box-shadow: 5px 15px 5px 0.5 grey;
+    width: 90%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+/* #btn-padding{
+    margin-top: 100px;
+} */
+.close-button {
+    background-color: hotpink;
+    color:white;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 40%;
+    bottom:10px;
+    /* margin-top: 20px; */
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mapThing{
+    background-image:url('../images/note.png');
+    z-index: 1;
+    background-size:cover;
+    animation: bounce 0.5s infinite alternate;
+    background-size:20px;
+    background-repeat:repeat;
+  
+}
+
+@keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-15px);
+    }
+  }
+ 
+/*LOGO */
+
+  .logo{
+      width: 16vw;
+      height: 7vh;
+      position: relative;
+      top:-23vh;
+  }
 
 
-/* COMMENTS: NEED TO FIX DIVS EQUAL HEIGHT & POSITION DIV AT END OF PARENT
-- used row-eq-height
-- used align-items-end
-- used align-self-end
+  /* event item calendar*/
 
-ABOVE DID NOt WORK */
+  .dayRender{
+      font-size:1.5em;
+  }
+
+ .venue, .time{
+    padding-top:1%;
+    padding-right:2%;
+ }

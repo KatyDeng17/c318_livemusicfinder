@@ -8,13 +8,18 @@ class Test extends Component{
 
   //requesting data from server: 
   async getUserData(){
-    const response = await axios.get('/api/user-data');
-    console.log('user data response:', response);
-    const name = response.data.name;
-    console.log(name);
+    const response = await axios.get('/api/data')
+     .then((data)=>{
+       console.log(`This is from DB`)
+     })
+     .catch((err)=>{
+       console.log(err);
+     })
+    console.log('This is the data:', response);
+  
   }
   render(){
-    return <h1> testing </h1>
+    return <h1> TESTING </h1>
   }
 
 }

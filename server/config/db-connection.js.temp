@@ -1,11 +1,13 @@
+//establish a connection with mysql:
 const mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : '[your user name]',
   password : '[your password]',
-  database : '',
-  port: '3307'
+  database : '[your database]',
+  port: '[your port]'
 });
+
 connection.connect((err)=>{
   if(err){
     console.error('error connecting: ' + err.stack);
@@ -20,5 +22,5 @@ connection.connect((err)=>{
 
 
 
-// connection.end();
+
 module.exports = connection;

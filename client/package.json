@@ -5,7 +5,7 @@
   "main": "index.js",
   "proxy": {
     "/api/*": {
-      "target": "http://localhost:8000"
+      "target": "http://localhost:9000"
     }
   },
   "scripts": {
@@ -23,10 +23,22 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "bootstrap3": "^3.3.5",
+    "font-awesome-icons": "^1.4.3",
+    "google-map-react": "^1.0.3",
+    "place": "^1.2.1",
     "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.2.0",
+    "react-google-maps": "^9.4.5",
+    "react-icons": "^2.2.7",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "search": "^1.0.0",
+    "turbo": "^0.1.2",
+    "youtube-api-search": "0.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
